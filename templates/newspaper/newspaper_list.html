@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Newspaper list:
+    <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+  <form class="form-inline my-2 my-lg-0" action="{% url 'newspaper:newspapers-search' %}">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search: model or manufacturer"
+           aria-label="Search" name="search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  {% if newspaper_list %}
+    <ul>
+      {% for newspaper in newspaper_list %}
+        <li>
+          <a href="{% url "newspaper:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.id }}</a>
+          {{ newspaper.title }} ({{ newspaper.content }} {{ newspaper.published_date }})
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no newspapers in newspaper agency</p>
+  {% endif %}
+{% endblock %}
