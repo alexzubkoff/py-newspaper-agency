@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>
-      Redactor List
+      Redactor list:
       <a href="{% url 'newspaper:redactor-create' %}" class="btn btn-primary link-to-page">
         Create
       </a>
@@ -21,6 +21,8 @@
         <th>First name</th>
         <th>Last name</th>
         <th>Years of experience</th>
+        <th>Update</th>
+        <th>Delete</th>
       </tr>
     {% for redactor in redactor_list %}
       <tr>
@@ -29,6 +31,17 @@
         <td>{{ redactor.first_name }}</td>
         <td>{{ redactor.last_name }}</td>
         <td>{{ redactor.years_of_experience }}</td>
+        <td>
+              <a href="{% url 'newspaper:redactor-update' pk=redactor.id %}">
+                <i class="material-icons" style="font-size:25px;color:gray">update</i>
+              </a>
+            </td>
+            <td>
+              <a style="color: red"
+                href="{% url 'newspaper:redactor-delete' pk=redactor.id %}">
+               <i class="material-icons" style="font-size:25px;color:gray">delete</i>
+              </a>
+            </td>
       </tr>
     {% endfor %}
 

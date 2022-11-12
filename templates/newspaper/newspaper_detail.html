@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1>
-    {{ newspaper.model }}
+    {{ newspaper.title }}
     <a href="{% url 'newspaper:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger link-to-page">
       Delete
     </a>
@@ -12,19 +12,12 @@
     </a>
   </h1>
   <p>Topic: ({{ newspaper.topic.name }})</p>
-  <h1>
-    Redactors:
-    {% if newspaper in user.newspapers.all %}
-      <a href="{% url 'newspaper:toggle-newspaper-assign' pk=newspaper.id %}" class="btn btn-danger link-to-page">
-        Delete me from this newspaper
-      </a>
-    {% else %}
-      <a href="{% url 'newspaper:toggle-newspaper-assign' pk=newspaper.id %}" class="btn btn-success link-to-page">
-        Assign me from this newspaper
-      </a>
-    {% endif %}
-
-  </h1>
+  <h3>
+    Content:
+  </h3>
+  <ul>
+      <li>{{ newspaper.content }} </li>
+  </ul>
   <hr>
   <ul>
     {% for redactor in newspaper.redactors.all %}

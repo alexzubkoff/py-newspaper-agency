@@ -8,19 +8,66 @@
     </a>
   </h1>
   <form class="form-inline my-2 my-lg-0" action="{% url 'newspaper:newspapers-search' %}">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search: model or manufacturer"
+    <input class="form-control mr-sm-2" type="search" placeholder="Search: title"
            aria-label="Search" name="search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
   {% if newspaper_list %}
-    <ul>
+    <table class="table table-striped">
+    <tr>
+      <th scope="col">
+        ID
+      </th>
+      <th scope="col">
+        Title
+      </th>
+      <th scope="col">
+        Content
+      </th>
+      <th scope="col">
+        Topic
+      </th>
+      <th scope="col">
+        Date
+      </th>
+      <th scope="col">
+        Update
+      </th>
+      <th scope="col">
+        Delete
+      </th>
+    </tr>
       {% for newspaper in newspaper_list %}
-        <li>
+        <tr>
+        <td>
           <a href="{% url "newspaper:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.id }}</a>
-          {{ newspaper.title }} ({{ newspaper.content }} {{ newspaper.published_date }})
-        </li>
+        </td>
+          <td>
+            <strong>{{ newspaper.title }}</strong>
+          </td>
+          <td>
+            {{ newspaper.content|slice:"0:350" }}
+          </td>
+          <td>
+            <strong>{{ newspaper.topic.name }}</strong>
+          </td>
+          <td>
+            {{ newspaper.published_date }}
+          </td>
+          <td>
+              <a href="{% url "newspaper:newspaper-update" pk=newspaper.id %}">
+                <i class="material-icons" style="font-size:25px;color:gray">update</i>
+              </a>
+            </td>
+            <td>
+              <a style="color: red"
+                href="{% url "newspaper:newspaper-delete" pk=newspaper.id %}">
+               <i class="material-icons" style="font-size:25px;color:gray">delete</i>
+              </a>
+            </td>
+        </tr>
       {% endfor %}
-    </ul>
+    </table>
   {% else %}
     <p>There are no newspapers in newspaper agency</p>
   {% endif %}

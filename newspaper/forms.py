@@ -3,18 +3,22 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
-from newspaper.models import Newspaper, Redactor
+from newspaper.models import Newspaper, Redactor, Topic
 
 
 class NewspaperForm(forms.ModelForm):
-    redactors = forms.ModelMultipleChoiceField(
+    topic = forms.ModelChoiceField(
+        queryset=Topic.objects.all(),
+        initial=0
+    )
+    publishers = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
 
     class Meta:
         model = Newspaper
-        fields = "__all__"
+        fields = ["title", "content", "topic", "publishers"]
 
 
 class RedactorCreationForm(UserCreationForm):
@@ -26,14 +30,14 @@ class RedactorCreationForm(UserCreationForm):
             "last_name",
         )
 
-    def clean_license_number(self):
+    def clean_years_of_experience_number(self):
         return validate_years_of_experience_number(self.cleaned_data["years_of_experience"])
 
 
 class RedactorExperienceUpdateForm(forms.ModelForm):
     class Meta:
         model = Redactor
-        fields = ["years_of_experience"]
+        fields = ["username", "first_name", "last_name", "years_of_experience"]
 
     def clean_license_number(self):
         return validate_years_of_experience_number(self.cleaned_data["years_of_experience"])

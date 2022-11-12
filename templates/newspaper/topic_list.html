@@ -2,19 +2,19 @@
 
 {% block content %}
   <h1>
-    Topic List:
-    <a href="{% url 'newspaper:topic-create' %}" class="btn btn-primary link-to-page">
+    Topic list:
+    <a href="{% url 'newspaper:topic-create' %}" class="btn btn-primary link-to-page"  >
       Create
     </a>
   </h1>
   <form class="form-inline my-2 my-lg-0" action="{% url 'newspaper:topic-search' %}">
     <input class="form-control mr-sm-2" type="search"
-           placeholder="Search: name or country " aria-label="Search" name="search">
+           placeholder="Search: topic name" aria-label="Search" name="search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
 
   {% if topic_list %}
-    <table class="table">
+    <table class="table table-striped">
       <tr>
         <th>ID</th>
         <th>Name</th>
@@ -32,13 +32,13 @@
           </td>
           <td>
               <a href="{% url 'newspaper:topic-update' pk=topic.id %}">
-                Update
+                <i class="material-icons" style="font-size:25px;color:gray">update</i>
               </a>
             </td>
             <td>
               <a style="color: red"
                 href="{% url 'newspaper:topic-delete' pk=topic.id %}">
-                Delete
+               <i class="material-icons" style="font-size:25px;color:gray">delete</i>
               </a>
             </td>
         </tr>

@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Newspaper agency Home</h1>
-    <p>Welcome to Best Newspaper agency Ever!</p>
-    <h2>Dynamic content</h2>
-    <p>The Newspaper agency has the following record counts:</p>
-    <ul>
-        <li><strong>Newspapers:</strong> {{ num_newspapers }}</li>
-        <li><strong>Redactors:</strong> {{ num_redactors }}</li>
-        <li><strong>Topics:</strong> {{ num_topics}}</li>
-    </ul>
-
+  <h5 class="display-1"><strong>Newspaper agency:</strong>
+    <i class="material-icons" style="font-size:48px;color:gray">border_color</i></h5>
+  <br>
+  <h5 class="display-2">Newspapers: {{ num_newspapers }}</h5>
+  <h5 class="display-3">Redactors: {{ num_redactors }}</h5>
+  <h5 class="display-4">Topics: {{ num_topics}}</h5>
+  <br>
+    <h6>Welcome!</h6>
     <p>You have visited this page
         {{ num_visits }} time{{ num_visits|pluralize }}.
     </p>
