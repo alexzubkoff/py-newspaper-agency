@@ -1,3 +1,23 @@
+Newspaper agency (Django 4.1 project)
+
+You are the chief in the newspaper agency. 
+And you are working with great team of Redactors. 
+But you don't track Newspapers, published by your 
+agency, in a proper way. For that purpose you decided 
+to create a system for tracking Redactors, assigned to 
+Newspapers. 
+
+Installation:
+
+git clone https://github.com/alexzubkoff/py-newspaper-agency
+cd py-newspaper-agency
+python -m venv venv
+venv\scripts\activate
+pip install -r requirements.txt
+python manage.py runserver
+
+Demo:
+
 ![home-page-after-logining](https://user-images.githubusercontent.com/22620680/201495800-6037e0a4-e282-4ce3-90bb-6e6c750c7fd2.png)
 ![login-page-before](https://user-images.githubusercontent.com/22620680/201495801-e1d2670f-4642-42e3-bd67-55444f96f108.png)
 ![newspaper-delete-confirm-page](https://user-images.githubusercontent.com/22620680/201495802-67516dac-1e82-4457-93f6-60d0a9a008cc.png)
