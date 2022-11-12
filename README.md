@@ -9,7 +9,7 @@ Newspapers.
 
 Installation:
 
-git clone https://github.com/alexzubkoff/py-newspaper-agency
+git clone git@github.com:alexzubkoff/py-newspaper-agency.git
 cd py-newspaper-agency
 python -m venv venv
 venv\scripts\activate
