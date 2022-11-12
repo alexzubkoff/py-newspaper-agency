@@ -10,10 +10,15 @@ Newspapers.
 Installation:
 
 git clone git@github.com:alexzubkoff/py-newspaper-agency.git
+
 cd py-newspaper-agency
+
 python -m venv venv
+
 venv\scripts\activate
+
 pip install -r requirements.txt
+
 python manage.py runserver
 
 Demo:
