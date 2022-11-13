@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-iq5a^uj)6io6+d(jz8dim4nwpwzowoo7p)gmqtdg9gs8o07^xi")
+SECRET_KEY = os.environ.get(
+    "DJANGO_SECRET_KEY",
+    "django-insecure-iq5a^uj)6io6+d(jz8dim4nwpwzowoo7p)gmqtdg9gs8o07^xi",
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
@@ -44,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -83,6 +88,21 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "kevvxvkf",
+#         "USER": "kevvxvkf",
+#         "PASSWORD": "TV28GqukZgD4iGjWCjpPFlIxn3_x9uN5",
+#         "HOST": "postgres://kevvxvkf:TV28GqukZgD4iGjWCjpPFlIxn3_x9uN5@mouse.db.elephantsql.com/kevvxvkf",
+#         "PORT": "5432",
+#     }
+# }
+
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES["default"].update(db_from_env)
+DATABASES['default'] = dj_database_url.config(default="postgres://kevvxvkf:TV28GqukZgD4iGjWCjpPFlIxn3_x9uN5@mouse."
+                                                      "db.elephantsql.com/kevvxvkf")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -124,12 +144,11 @@ USE_TZ = True
 #
 # STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static/"),
-)
+STATIC_URL = "/static/"
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static/"),)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+STATIC_ROOT = "staticfiles/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
