@@ -1,3 +1,7 @@
+Deployed to https://newspaper-agency-alex-zubkov-mate.onrender.com/
+login: user_guest
+pass: user12345
+
 Newspaper agency (Django 4.1 project)
 
 You are the chief in the newspaper agency. 
