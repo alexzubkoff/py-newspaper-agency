@@ -1,8 +1,14 @@
-Deployed to https://newspaper-agency-alex-zubkov-mate.onrender.com/
-login: user_guest
-pass: user12345
+# py-newspaper-agency
 
 Newspaper agency (Django 4.1 project)
+
+Deployed to https://newspaper-agency-alex-zubkov-mate.onrender.com/
+User:
+    login: user_guest
+    pass: user12345
+Admin (https://newspaper-agency-alex-zubkov-mate.onrender.com/admin):
+    login: alexzubkov
+    pass: AlexZubinsteine17
 
 You are the chief in the newspaper agency. 
 And you are working with great team of Redactors. 
@@ -13,17 +19,17 @@ Newspapers.
 
 Installation:
 
-git clone git@github.com:alexzubkoff/py-newspaper-agency.git
+`git clone git@github.com:alexzubkoff/py-newspaper-agency.git`
 
-cd py-newspaper-agency
+`cd py-newspaper-agency`
 
-python -m venv venv
+`python -m venv venv`
 
-venv\scripts\activate
+`venv\scripts\activate`
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
-python manage.py runserver
+`python manage.py runserver`
 
 Demo:
 
@@ -42,4 +48,4 @@ Demo:
 ![topic-list-page](https://user-images.githubusercontent.com/22620680/201495815-8de56568-e933-4438-834b-9f3d64436a2e.png)
 ![topic-list-search-page-by-name](https://user-images.githubusercontent.com/22620680/201495816-0877d6c5-4622-4b4f-affc-7861ee8aa3cd.png)
 ![topic-update](https://user-images.githubusercontent.com/22620680/201495818-20675cf9-13bc-455b-aa91-950f1cb00bd8.png)
-# py-newspaper-agency
+

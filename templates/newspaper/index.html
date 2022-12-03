@@ -1,8 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+  <style>
+#div1 {
+  font-size:48px;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <h5 class="display-1"><strong>Newspaper agency:</strong>
-    <i class="material-icons" style="font-size:48px;color:gray">border_color</i></h5>
+    <div id="div1" class="fa"></div>
+    <i data-mdb-animation-start="onLoad"  class="material-icons" style="font-size:48px;color:gray">border_color</i></h5>
   <br>
   <h5 class="display-2">Newspapers: {{ num_newspapers }}</h5>
   <h5 class="display-3">Redactors: {{ num_redactors }}</h5>
@@ -12,5 +20,17 @@
     <p>You have visited this page
         {{ num_visits }} time{{ num_visits|pluralize }}.
     </p>
+  <script>
+function openfolder() {
+  var a;
+  a = document.getElementById("div1");
+  a.innerHTML = "&#xf114;";
+  setTimeout(function () {
+      a.innerHTML = "&#xf115;";
+    }, 1000);
+}
+openfolder();
+setInterval(openfolder, 2000);
+</script>
 
 {% endblock %}
